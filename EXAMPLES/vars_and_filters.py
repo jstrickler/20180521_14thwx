@@ -2,7 +2,7 @@
 # (c)2015 John Strickler
 from flask import Flask, render_template, request
 
-from EXAMPLES.president import President
+from president import President
 
 app = Flask(__name__)
 
