@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    {% for president in presidents %}
+    <h1>{{ president.first_name }} {{ president.last_name }}</h1>
+    <h2>Born in: {{ president.birthplace }}, {{ president.birth_state }}</h2>
+    <h2>Lived: {{ president.birth_date }} to {{ president.death_date }}</h2>
+    <h2>Party: {{ president.party }}</h2>
+    <hr/>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+
+a[target="_blank"] {
+    display:inline-block;   
+    line-height:18px; /* check your icon height */
+    background:url(../img/external.png)  center right no-repeat;
+    padding-right:20px;
+} 
+
+/* panel stuff */
+
+.panel_sm,.panel_lg {
+        padding: 1%;
+}
+
+.panel_lg {
+        display: none;
+        border-style: solid;
+        border-width: medium;
+        border-color: #73a9b2;
+}
+/* end panel stuff */
+p.instructions {
+        border-style: solid;
+        border-width: thin;
+        font-size: small;
+        padding: 3px;
+        text-align: center;
+        margin-left: 20%;
+        margin-right: 20%;
+}

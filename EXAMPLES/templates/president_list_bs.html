@@ -1,0 +1,7 @@
+{% extends "president_base_bs.html" %}
+{% block content %}
+    {% for president in presidents %}
+    <h3>{{ president.first_name }} {{ president.last_name }}</h3>
+    {% endfor %}
+    <a href="{{ url_for('index') }}">Return to main page</a>
+{% endblock %}

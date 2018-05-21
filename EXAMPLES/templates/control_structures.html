@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Control Structures</h1>
+<br/>
+<ul>
+    {% for fruit in fruits %}
+    {% if fruit | length > 5 %}
+    <li><i>{{ fruit }}</i></li>
+    {% else %}
+    <li>{{ fruit }}</li>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+<br/>
+{% if  number > 25 %}
+<h3>SPAM!</h3>
+{% else %}
+<h3>HAM!</h3>
+{% endif %}
+
+</body>
+</html>

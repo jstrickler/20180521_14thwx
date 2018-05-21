@@ -1,0 +1,6 @@
+{% extends "president_base.html" %}
+{% block content %}
+    {% for president in presidents %}
+    <h3>{{ president.first_name }} {{ president.last_name }}</h3>
+    {% endfor %}
+{% endblock %}

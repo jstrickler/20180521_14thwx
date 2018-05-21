@@ -1,0 +1,15 @@
+{% extends "form_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}Form Demo{% endblock %}
+
+{% block content %}
+<div class=""page-header">
+    <h1>Greetings,
+        {% if name %}Sir {{ name }}{% else %} Sir Knight{% endif %}!
+    </h1>
+    <h2>Good luck with {{ quest }}</h2>
+</div>
+{{ wtf.quick_form(form) }}
+{% endblock %}

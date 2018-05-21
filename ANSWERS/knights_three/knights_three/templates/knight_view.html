@@ -1,0 +1,10 @@
+{% extends "knight_base.html" %}
+{% block title %}
+{% endblock %}
+{% block content %}
+    <h1>{{ knight.title }} {{ knight.name }}</h1>
+    <h2>Favorite color: {{ knight.color }}</h2>
+    <h2>Quest: {{ knight.quest }}</h2>
+    <h2>Comment: {{ knight.comment }}</h2>
+    <h3><a href="{{ url_for('knights.knight_list') }}">Return to list of knights</a></h3>
+{% endblock %}

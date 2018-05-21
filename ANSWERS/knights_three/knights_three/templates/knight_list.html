@@ -1,0 +1,8 @@
+{% extends "knight_base.html" %}
+{% block title %}
+{% endblock %}
+{% block content %}
+    {% for knight in knights %}
+        <h3><a href="{{ url_for('knights.knight_by_name',name=knight.name) }}">{{ knight.title }} {{ knight.name }}</a></h3>
+    {% endfor %}
+{% endblock %}

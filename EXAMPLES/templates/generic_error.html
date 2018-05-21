@@ -1,0 +1,6 @@
+{% extends "error_base.html" %}
+{% block title %}{{ error_type }}{% endblock %}
+{% block content %}
+  {{ error_message }}<br/>
+  <a href="{{ url_for('index') }}">Home page</a>
+{% endblock %}
