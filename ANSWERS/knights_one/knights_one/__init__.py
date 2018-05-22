@@ -24,12 +24,12 @@ def index():
 def knights(name):
     knight = Knight(name)
     return '''
-    <h1>{0} {1}</h1>
-    Favorite color: {2}<br/>
-    Quest: {3}<br/>
-    Comment: {4}<br/>
+    <h1>{} {}</h1>
+    Favorite color: {}<br/>
+    Quest: {}<br/>
+    Comment: {}<br/>
     <br/>
-    <a href="{5}">return to main page</a>
+    <a href="{}">return to main page</a>
     '''.format(
         knight.title,
         name,

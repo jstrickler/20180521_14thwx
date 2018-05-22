@@ -3,18 +3,19 @@
 
 from flask import Flask
 
+
 app = Flask(__name__)
 
-
-@app.route('/')
-def index():
-    return '<h1>Hello, Flask world!</h1>'
-
+# index = app.route('/')(index)
 
 @app.route('/barf')
 def barf():
     return '<h1>Wow this is ugly!</h1>'
 
+@app.route('/')
+def index():
+    return '<div class="container">Hello, Flask world!</div>'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
+

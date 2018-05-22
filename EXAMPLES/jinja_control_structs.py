@@ -10,10 +10,15 @@ FRUITS = ["apple", "banana", "mango", "fig", "muskmelon"]
 
 @app.route('/')
 def index():
+    data = {
+        'username': 'Bob',
+        'number': randint(1, 50),
+        'fruits': FRUITS,
+    }
+    
     return render_template(
         'control_structures.html',
-        fruits=FRUITS,
-        number=randint(1, 50),
+        **data  # unpact dict into named params
     )
 
 if __name__ == '__main__':

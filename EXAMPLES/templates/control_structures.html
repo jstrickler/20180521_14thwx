@@ -7,22 +7,25 @@
 <body>
 <h1>Control Structures</h1>
 <br/>
-<ul>
+<ol>
     {% for fruit in fruits %}
-    {% if fruit | length > 5 %}
-    <li><i>{{ fruit }}</i></li>
-    {% else %}
-    <li>{{ fruit }}</li>
-    {% endif %}
+	    {% if fruit | length > 5 %}
+	    <li><i>{{ fruit }}</i></li>
+	    {% else %}
+	    <li>{{ fruit }}</li>
+	    {% endif %}
     {% endfor %}
-</ul>
+</ol>
 
 <br/>
+<h3>
+{{ number }}
 {% if  number > 25 %}
-<h3>SPAM!</h3>
+SPAM!
 {% else %}
-<h3>HAM!</h3>
+HAM!
 {% endif %}
+</h3>
 
 </body>
 </html>

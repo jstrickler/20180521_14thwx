@@ -1,13 +1,18 @@
 #!/usr/bin/env python
 # (c)2015 John Strickler
 from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy
 from models import db, President
 
 app = Flask(__name__)
 
 # in Real Life, get from config or file or environment
-app.config['SQLALCHEMY_DATABASE_URI'] = 'pymysql://mysql:scripts@localhost/postgres'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:scripts@localhost/postgres'
+
+sqlite_db_path = '/Users/jstrick/Desktop/py2flaskintro/DATA/presidents.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite+pysqlite:///' + sqlite_db_path
+
+
 
 db.init_app(app)
 
@@ -20,24 +25,28 @@ def index():
 #     db.create_all()
 #     return("<h1>Database initialized</h1>")
 
+@app.route('/wtf')
+def wtf():
+    return "WTF???"
 
-@app.route('/president/<int:termnum>')
+@app.route('/president/<int:termnum>/')
 def show_pres(termnum):
     # select from president ....
-    p = President.query.filter(President.num == termnum).first()
-    if p:
+    pres_list = President.query.filter(President.termnum == termnum)
+    if pres_list:
+        p = pres_list.first()
         html = '<html><head><title>President #{}</title></head><body>'.format(termnum)
         html += 'President #{}<br/>\n'.format(termnum)
-        html += 'Name: {} {}<br/>\n'.format(p.fname, p.lname)
-        html += 'Lived: {} to {}<br/>\n'.format(p.dbirth, p.ddeath)
+        html += 'Name: {} {}<br/>\n'.format(p.firstname, p.lastname)
+        html += 'Lived: {} to {}<br/>\n'.format(p.birthdate, p.deathdate)
         html += 'Born in: {}, {}<br/>\n'.format(p.birthplace, p.birthstate)
-        html += 'Served: {} to {}<br/>\n'.format(p.dstart, p.dend)
+        html += 'Served: {} to {}<br/>\n'.format(p.termstart, p.termend)
         html += 'Party: {}<br/>\n'.format(p.party)
         html += '</body></html>'
 
-        return html, 200
+        return html
     else:
-        return "No such president", 200
+        return "No such president"
 
 if __name__ == '__main__':
     app.run(debug=True)

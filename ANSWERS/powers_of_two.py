@@ -5,7 +5,6 @@ from flask import Flask
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
     page = '<h1>Powers of two </h1>\n'
@@ -13,6 +12,7 @@ def index():
         line = '2^{0} = {1}<br/>\n'.format(i, 2**i)
         page += line
     return page
+#    return render_template('foo.html', {})
 
 
 if __name__ == '__main__':

@@ -7,13 +7,13 @@ from flask import Flask
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
     """Default page for this site"""
     return '''<h1>Welcome to our spamhammer!</h1>
     <h3>Try .../president/term</h3>
     <h3>Try .../president/lastname</h3>
+    <h3>Try .../president/presidents</h3>
     '''
 
 

@@ -1,6 +1,12 @@
 {% extends "president_base.html" %}
+{% block top %}
+IN THE CHILD TEMPLATE!
+{{ super() }}
+{% endblock %}
 {% block content %}
     {% for president in presidents %}
-    <h3>{{ president.first_name }} {{ president.last_name }}</h3>
+    <h3><a href="{{ url_for('president_by_term', termnum=president.num) }}">
+     {{ president.first_name }} {{ president.last_name }}
+     </a></h3>
     {% endfor %}
 {% endblock %}

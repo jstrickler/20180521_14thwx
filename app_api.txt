@@ -1,0 +1,8 @@
+
+http://www.wx.com +
+/
+/daily
+/daily/today
+/daily/tomorrow
+/weekly/summary
+/weekly/detail

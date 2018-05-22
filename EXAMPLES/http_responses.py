@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # (c)2015 John Strickler
-from flask import Flask, make_response
+from flask import Flask, make_response, request
 
 app = Flask(__name__)
 
@@ -21,12 +21,29 @@ def return_str():
 @app.route('/obj/')
 def return_obj():
     return make_response(
-        ('<h1>Response object</h1>', 200, { 'Content-type': 'text/html' })
+        ('<h1>Response object</h1>')
     )
 
 @app.route('/tuple/')
 def return_tuple():
-    return("<h1>Tuple</h1>", 200, { 'Content-type': 'text/html'})
+    return "<h1>Tuple</h1>", 200, { 'Content-type': 'text/html'}
+
+@app.route('/show')
+def show_request_context():
+    html = ""
+    for attr in sorted(dir(request)):
+        html += "{}: {}<br/>\n".format(attr, getattr(request, attr))
+
+    html += "<hr/>\n"
+    html += str(request.user_agent) + '<br/>'
+
+    return html
+
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

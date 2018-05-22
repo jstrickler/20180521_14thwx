@@ -42,7 +42,7 @@ def logerror():
 @app.route('/warn')
 def logwarn():
     app.logger.warn("Warning Event")
-    return "<h2warn</h2>"
+    return "<h2>warn</h2>"
 
 @app.route('/critical')
 def logcritical():

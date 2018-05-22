@@ -7,5 +7,9 @@
 <body>
 <h1>Welcome, {{ username }}!</h1>
 <h3>Your browser is {{ browser }}</h3>
+<hr/>
+{% for name, value in headers %}
+{{ name }} {{ value }}<br/><br/>
+{% endfor %}
 </body>
 </html>

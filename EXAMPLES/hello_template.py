@@ -16,6 +16,7 @@ def user_name(username):
         'hello.html',
         browser=user_agent,
         username=username.replace('+',' '),
+        headers=request.headers,
     )
 
 if __name__ == '__main__':

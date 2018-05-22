@@ -1,11 +1,19 @@
 #!/usr/bin/env python
 # (c)2015 John Strickler
 
+import os
 from flask import Flask
-from config import DevConfig
+
+DEBUG = bool(os.getenv('FLASK_DEBUG', True))
+
+
+if DEBUG:
+    from config import DevelopmentConfig as CONFIG
+else:
+    from config import ProductionConfig as CONFIG
 
 app = Flask(__name__)
-app.config.from_object(DevConfig)
+app.config.from_object(CONFIG)
 
 
 @app.route('/')

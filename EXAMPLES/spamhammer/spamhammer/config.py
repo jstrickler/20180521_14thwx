@@ -3,7 +3,7 @@
 #
 import os
 
-class Config(object):
+class BaseConfig(object):
     SECRET_KEY = 'My hovercraft is full of eels'
     SPAMHAMMER_MAIL_PREFIX = '[SpamHammer]'
     SPAMHAMMER_MAIL_SENDER = 'SpamHammer Admin <admin@spamhammer.com>'
@@ -12,7 +12,7 @@ class Config(object):
     def init_app(app):
         pass
 
-class DevConfig(Config):
+class DevelopmentConfig(BaseConfig):
     DEBUG = True
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
@@ -20,14 +20,15 @@ class DevConfig(Config):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
-    DB_URI = os.environ.get('DEV_DATABASE_URL')
+    DB_URI = os.environ.get('FLASK_DEV_DATABASE_URL')
 
-class ProdConfig(Config):
-    DB_URI = os.environ.get('DATABASE_URL')
+class ProductionConfig(BaseConfig):
+    DEBUG = False
+    DB_URI = os.environ.get('FLASK_PROD_DATABASE_URL')
 
 # not really needed...
 config = {
-    'development': DevConfig,
-    'production': ProdConfig,
-    'default': DevConfig
+    'development': DevelopmentConfig,
+    'production': ProductionConfig,
+    'default': DevelopmentConfig
 }
