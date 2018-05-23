@@ -2,7 +2,7 @@
 # (c)2015 John Strickler
 
 from flask import Flask, url_for
-from knight import Knight
+from ANSWERS.knights_one.knights_one.knight import Knight
 
 app = Flask(__name__)
 

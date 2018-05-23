@@ -1,0 +1,6 @@
+[
+  "test_hello.py::test_nothing", 
+  "test_hello.py::test_root_has_hello", 
+  "test_hello.py::test_barf_has_ugly", 
+  "test_hello.py::test_potus_26_is_tr"
+]

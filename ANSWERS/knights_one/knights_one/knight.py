@@ -3,7 +3,7 @@ import os
 DATA_FOLDER = os.getenv("DATADIR", "c:/Users/johndoe/Desktop/py2flaskintro/DATA")
 DATA_FILE = os.path.join(DATA_FOLDER, 'knights.txt')
 
-DATA_FILE = "c:/Users/johndoe/Desktop/py2flaskintro/DATA/knights.txt"
+DATA_FILE = "/Users/jstrick/Desktop/py2flaskintro/DATA/knights.txt"
 
 class UnknownKnightError(Exception):
     pass

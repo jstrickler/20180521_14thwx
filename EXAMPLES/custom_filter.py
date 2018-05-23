@@ -4,15 +4,16 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-def _python_to_camelcase(s):
+def py_to_cam(s):
     return s.title().replace('_', '')
 
-app.jinja_env.filters['pytocam'] = _python_to_camelcase
+app.jinja_env.filters['pytocam'] = py_to_cam
 
 @app.route('/')
 def index():
     return render_template(
         'custom_filter.html',
+        movie = 'a_boy_and_his_dog',
         function='this_is_only_a_test'
     )
 

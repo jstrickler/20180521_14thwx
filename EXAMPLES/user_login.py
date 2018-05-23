@@ -5,7 +5,7 @@
 # http://gouthamanbalaraman.com/minimal-flask-login-example.html
 
 from flask import Flask, Response
-from flask.ext.login import LoginManager, UserMixin, login_required
+from flask_login import LoginManager, UserMixin, login_required
 
 
 app = Flask(__name__)
@@ -15,8 +15,8 @@ login_manager.init_app(app)
 
 class User(UserMixin):
     # proxy for a database of users
-    user_database = {"JohnDoe": ("JohnDoe", "John"),
-               "JaneDoe": ("JaneDoe", "Jane")}
+    user_database = {"JohnDoe": ("JohnDoe", "john"),
+               "JaneDoe": ("JaneDoe", "jane")}
 
     def __init__(self, username, password):
         self.id = username
@@ -24,6 +24,7 @@ class User(UserMixin):
 
     @classmethod
     def get(cls,id):
+        # get username, password from database/wherever
         return cls.user_database.get(id)
 
 
