@@ -1,0 +1,30 @@
+{% extends "form_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}Form Demo{% endblock %}
+
+{% block content %}
+
+
+{% if name %}
+{{ name }}
+{{ cost_per_hour }}
+{% for field, value in form.items() %}
+<div class="row">
+	<div class="col-sm-4">field</div>
+	<div class="col-sm-4">value</div>
+</div>
+{% endfor %} 
+{% endif %}
+
+<form name="delete_me" action={{ url_for('demo') }} method="POST">
+
+  <p>{{ form.name }}</p>
+  <p>{{ form.programmer }}</p>
+  <p>{{ form.cost_per_hour }}</p>
+</form>
+
+{{ wtf.quick_form(form, action=url_for('demo')) }}
+
+{% endblock %}

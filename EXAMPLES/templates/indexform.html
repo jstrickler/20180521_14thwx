@@ -5,11 +5,15 @@
 {% block title %}Form Demo{% endblock %}
 
 {% block content %}
+
+{% if form.name %}
 <div class=""page-header">
-    <h1>Greetings,
-        {% if name %}Sir {{ name }}{% else %} Sir Knight{% endif %}!
+    <h1>Greetings, Sir
+        {{ name }}
     </h1>
-    <h2>Good luck with {{ quest }}</h2>
+    <h2>Good luck with your quest: {{ quest }}!</h2>
 </div>
-{{ wtf.quick_form(form) }}
+{% endif %}
+
+{{ wtf.quick_form(form, action=url_for('process_me')) }}
 {% endblock %}

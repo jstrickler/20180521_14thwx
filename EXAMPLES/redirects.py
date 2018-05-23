@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # (c)2015 John Strickler
 
-from flask import Flask, redirect
+from flask import Flask, redirect, url_for
 
 app = Flask(__name__)
 
@@ -16,7 +16,7 @@ def index():
 @app.route('/obsolete')
 def old_page():
   # Second param specifies type of redirect
-  return redirect('/', 301)
+  return redirect(url_for('index'), 301)
 
 if __name__ == '__main__':
     app.run(debug=True)
