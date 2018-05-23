@@ -48,11 +48,11 @@ def pres_list_to_xml(pres_list):
     return ET.tostring(root)
 
 
-@app.route('/')
+@app.route('/presidents')
 def index():
     """Main page; returns list of all presidents"""
     presidents = []
-    for i in xrange(1, 45):
+    for i in xrange(1, 46):
         presidents.append(President(i))
     accept_type = request.headers.get('ACCEPT')
     response = ''
@@ -69,7 +69,7 @@ def index():
     return response
 
 
-@app.route('/president/<int:termnum>/')
+@app.route('/presidents/<int:termnum>/')
 def pres_by_termnum(termnum):
     accept_type = request.headers.get('ACCEPT')
     p = President(termnum)
